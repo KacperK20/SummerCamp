@@ -14,7 +14,7 @@ export default function Task() {
   
   const [currentPage, setCurrentPage] = useState(1);
   const perPage = 10;
-  const count = 100; 
+  const [count, setCount] = useState(100);
   
   const { data: people, isLoading, isError } = useQuery<User[]>(['users', currentPage, count], async () => {
     const response = await fetch(`/api/people?page=${currentPage}&count=${count}`);
